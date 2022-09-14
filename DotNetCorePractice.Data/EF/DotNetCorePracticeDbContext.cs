@@ -1,5 +1,6 @@
 ﻿using DotNetCorePractice.Data.Configurations;
 using DotNetCorePractice.Data.Entities;
+using DotNetCorePractice.Data.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace DotNetCorePractice.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Configure using Fluent API
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
@@ -28,6 +30,8 @@ namespace DotNetCorePractice.Data.EF
             modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+            //Seed Data
+            modelBuilder.Seed();
         }
 
         public DbSet<Product> Products { get; set; }
