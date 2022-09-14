@@ -1,6 +1,8 @@
 ﻿using DotNetCorePractice.Data.Configurations;
 using DotNetCorePractice.Data.Entities;
 using DotNetCorePractice.Data.Extensions;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Text;
 
 namespace DotNetCorePractice.Data.EF
 {
-    public class DotNetCorePracticeDbContext : DbContext
+    public class DotNetCorePracticeDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
         public DotNetCorePracticeDbContext(DbContextOptions options) : base(options)
         {
@@ -30,6 +32,15 @@ namespace DotNetCorePractice.Data.EF
             modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+
+            modelBuilder.ApplyConfiguration(new AppUserConfiguration());
+            modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
+
+            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
+            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId});
+            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
+            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => x.UserId);
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
             //Seed Data
             modelBuilder.Seed();
         }

@@ -4,14 +4,16 @@ using DotNetCorePractice.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DotNetCorePractice.Data.Migrations
 {
     [DbContext(typeof(DotNetCorePracticeDbContext))]
-    partial class DotNetCorePracticeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220914063725_DatabaseIdentity")]
+    partial class DatabaseIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,16 +75,6 @@ namespace DotNetCorePractice.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "445daa39-ad12-4de0-9a75-4eac49810766",
-                            Description = "Administrator role",
-                            Name = "admin",
-                            NormalizedName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("DotNetCorePractice.Data.Entities.AppUser", b =>
@@ -149,27 +141,6 @@ namespace DotNetCorePractice.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("544cdf6e-844a-482a-907d-8808d97b7a5e"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "b834e8a6-79d4-4d56-9f9d-197f6a06dd01",
-                            Dob = new DateTime(2001, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "trieu251101@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "Trieu",
-                            LastName = "Dang",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "trieu251101@gmail.co",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFlehxQiXCa/tAaHTIE4Bkk4ecG98VATbdYGFWkN/+DmXtqVEL6TAxNsTOvBRVdmsw==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("DotNetCorePractice.Data.Entities.Cart", b =>
@@ -418,7 +389,7 @@ namespace DotNetCorePractice.Data.Migrations
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 9, 14, 13, 46, 14, 556, DateTimeKind.Local).AddTicks(8455));
+                        .HasDefaultValue(new DateTime(2022, 9, 14, 13, 37, 24, 953, DateTimeKind.Local).AddTicks(3364));
 
                     b.Property<string>("ShipAddress")
                         .IsRequired()
@@ -515,7 +486,7 @@ namespace DotNetCorePractice.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 9, 14, 13, 46, 14, 579, DateTimeKind.Local).AddTicks(5526),
+                            DateCreated = new DateTime(2022, 9, 14, 13, 37, 24, 979, DateTimeKind.Local).AddTicks(256),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             SeoAlias = "ao-so-mi-nam-trang-viet-tien",
@@ -780,13 +751,6 @@ namespace DotNetCorePractice.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("544cdf6e-844a-482a-907d-8808d97b7a5e"),
-                            RoleId = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>

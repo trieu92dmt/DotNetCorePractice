@@ -26,6 +26,7 @@ namespace DotNetCorePractice.Data.Configurations
 
 
             builder.Property(x => x.ShipPhoneNumber).IsRequired().HasMaxLength(200);
+            builder.HasOne(x => x.AppUser).WithMany(pc => pc.Orders).HasForeignKey(x => x.UserId);
         }
     }
 }
