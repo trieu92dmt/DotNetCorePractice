@@ -15,6 +15,7 @@ namespace DotNetCorePractice.Data.Configurations
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id).UseIdentityColumn();
+            builder.HasOne(x => x.AppUser).WithMany(pc => pc.Transactions).HasForeignKey(x => x.UserId);
         }
     }
 }
