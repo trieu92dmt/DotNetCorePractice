@@ -4,14 +4,16 @@ using DotNetCorePractice.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DotNetCorePractice.Data.Migrations
 {
     [DbContext(typeof(DotNetCorePracticeDbContext))]
-    partial class DotNetCorePracticeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220914082910_AddProductImageTable")]
+    partial class AddProductImageTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
