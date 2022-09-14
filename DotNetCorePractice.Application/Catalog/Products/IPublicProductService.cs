@@ -11,5 +11,6 @@ namespace DotNetCorePractice.Application.Catalog.Products
     public interface IPublicProductService
     {
         public Task<PagedResult<ProductViewModel>> GetAllByCateogryId(GetProductPagingRequest request);
+        public Task<List<ProductViewModel>> GetAll();
     }
 }

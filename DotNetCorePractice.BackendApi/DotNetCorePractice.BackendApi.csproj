@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetCorePractice.Application\DotNetCorePractice.Application.csproj" />
+    <ProjectReference Include="..\DotNetCorePractice.Data\DotNetCorePractice.Data.csproj" />
+    <ProjectReference Include="..\DotNetCorePractice.Utilities\DotNetCorePractice.Utilities.csproj" />
+    <ProjectReference Include="..\DotNetCorePractice.ViewModels\DotNetCorePractice.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

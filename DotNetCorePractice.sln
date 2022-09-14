@@ -14,9 +14,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCorePractice.Data", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCorePractice.Application", "DotNetCorePractice.Application\DotNetCorePractice.Application.csproj", "{8CD1F28E-794F-482E-91A6-DE673CDF601D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCorePractice.Utilities", "DotNetCorePractice.Utilities\DotNetCorePractice.Utilities.csproj", "{61F68472-EB5C-4726-933A-4B73B89CD94C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCorePractice.Utilities", "DotNetCorePractice.Utilities\DotNetCorePractice.Utilities.csproj", "{61F68472-EB5C-4726-933A-4B73B89CD94C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCorePractice.ViewModels", "DotNetCorePractice.ViewModels\DotNetCorePractice.ViewModels.csproj", "{0C5CB72E-64EA-4F23-8778-C7FA2AB4177A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCorePractice.ViewModels", "DotNetCorePractice.ViewModels\DotNetCorePractice.ViewModels.csproj", "{0C5CB72E-64EA-4F23-8778-C7FA2AB4177A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCorePractice.BackendApi", "DotNetCorePractice.BackendApi\DotNetCorePractice.BackendApi.csproj", "{212BF0C4-4350-44A2-9651-BB557D69618F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{0C5CB72E-64EA-4F23-8778-C7FA2AB4177A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C5CB72E-64EA-4F23-8778-C7FA2AB4177A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C5CB72E-64EA-4F23-8778-C7FA2AB4177A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{212BF0C4-4350-44A2-9651-BB557D69618F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212BF0C4-4350-44A2-9651-BB557D69618F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212BF0C4-4350-44A2-9651-BB557D69618F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212BF0C4-4350-44A2-9651-BB557D69618F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
