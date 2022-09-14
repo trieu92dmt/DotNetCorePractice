@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace DotNetCorePractice.BackendApi
 {
@@ -31,6 +32,11 @@ namespace DotNetCorePractice.BackendApi
 
             //Declare DI
             services.AddTransient<IPublicProductService, PublicProductService>();
+            //Add Swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger DotNetCorePractice", Version = "v1" });
+            });
 
             services.AddControllersWithViews();
         }
@@ -54,6 +60,13 @@ namespace DotNetCorePractice.BackendApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger DotNetCorePractice V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {
