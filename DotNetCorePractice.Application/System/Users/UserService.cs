@@ -47,7 +47,7 @@ namespace DotNetCorePractice.Application.System.Users
                 issuer: _conf["Jwt:Issuer"],
                 audience: _conf["Jwt:Issuer"],
                 claims: claims,
-                expires: DateTime.Now,
+                expires: DateTime.Now.AddDays(1),
                 signingCredentials: creds
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);

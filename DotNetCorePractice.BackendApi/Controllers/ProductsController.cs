@@ -6,6 +6,7 @@ using DotNetCorePractice.Application.Catalog.Products;
 using DotNetCorePractice.ViewModels.Catalog.ProductImages;
 using DotNetCorePractice.ViewModels.Catalog.Products;
 using DotNetCorePractice.ViewModels.Catalog.Products.Public;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,6 +24,7 @@ namespace DotNetCorePractice.BackendApi.Controllers
             _manageProductService = manageProductService;
         }
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Get()
         {
             var products = await _publicProductService.GetAll();
