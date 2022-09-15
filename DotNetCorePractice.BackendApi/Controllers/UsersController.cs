@@ -38,7 +38,7 @@ namespace DotNetCorePractice.BackendApi.Controllers
 
         [HttpPost("register")]
         [AllowAnonymous]
-        public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+        public async Task<IActionResult> Register([FromForm] RegisterRequest request)
         {
             if (!ModelState.IsValid)
             {
