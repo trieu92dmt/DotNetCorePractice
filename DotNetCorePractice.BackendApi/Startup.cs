@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using DotNetCorePractice.Application.Catalog.Products;
 using DotNetCorePractice.Application.Common;
+using DotNetCorePractice.Application.System.Users;
 using DotNetCorePractice.Data.EF;
+using DotNetCorePractice.Data.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,10 +34,16 @@ namespace DotNetCorePractice.BackendApi
             services.AddDbContext<DotNetCorePracticeDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DotNetCoreDatabase")));
 
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<DotNetCorePracticeDbContext>()
+                .AddDefaultTokenProviders();
             //Declare DI
             services.AddTransient<IStorageService, FileStorageService>();
             services.AddTransient<IPublicProductService, PublicProductService>();
             services.AddTransient<IManageProductService, ManageProductService>();
+            services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+            services.AddTransient<IUserService, UserService>();
             //Add Swagger
             services.AddSwaggerGen(c =>
             {
