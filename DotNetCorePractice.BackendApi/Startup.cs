@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotNetCorePractice.Application.Catalog.Products;
+using DotNetCorePractice.Application.Common;
 using DotNetCorePractice.Data.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,7 +32,9 @@ namespace DotNetCorePractice.BackendApi
                 options.UseSqlServer(Configuration.GetConnectionString("DotNetCoreDatabase")));
 
             //Declare DI
+            services.AddTransient<IStorageService, FileStorageService>();
             services.AddTransient<IPublicProductService, PublicProductService>();
+            services.AddTransient<IManageProductService, ManageProductService>();
             //Add Swagger
             services.AddSwaggerGen(c =>
             {

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCorePractice.WebApp", "DotNetCorePractice.WebApp\DotNetCorePractice.WebApp.csproj", "{318A361E-EB27-417B-881C-698212610D47}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{06E3BCD4-AE77-492B-BBA8-58BAE142BE1F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Solution Items", "0.Solution Items", "{06E3BCD4-AE77-492B-BBA8-58BAE142BE1F}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
@@ -18,7 +18,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCorePractice.Utilitie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCorePractice.ViewModels", "DotNetCorePractice.ViewModels\DotNetCorePractice.ViewModels.csproj", "{0C5CB72E-64EA-4F23-8778-C7FA2AB4177A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCorePractice.BackendApi", "DotNetCorePractice.BackendApi\DotNetCorePractice.BackendApi.csproj", "{212BF0C4-4350-44A2-9651-BB557D69618F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCorePractice.BackendApi", "DotNetCorePractice.BackendApi\DotNetCorePractice.BackendApi.csproj", "{212BF0C4-4350-44A2-9651-BB557D69618F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Infrastructure", "1.Infrastructure", "{1872B663-71FE-44DB-B796-C04F29A44068}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Domain", "2.Domain", "{7985234D-BA5B-411F-9251-306E71FD0C88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Host", "3.Host", "{0E5CCE76-56C7-4AEA-9B92-7146B53B6225}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +59,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{318A361E-EB27-417B-881C-698212610D47} = {0E5CCE76-56C7-4AEA-9B92-7146B53B6225}
+		{5AF419DC-4596-40B8-891E-1C9E19EC891A} = {7985234D-BA5B-411F-9251-306E71FD0C88}
+		{8CD1F28E-794F-482E-91A6-DE673CDF601D} = {7985234D-BA5B-411F-9251-306E71FD0C88}
+		{61F68472-EB5C-4726-933A-4B73B89CD94C} = {1872B663-71FE-44DB-B796-C04F29A44068}
+		{0C5CB72E-64EA-4F23-8778-C7FA2AB4177A} = {1872B663-71FE-44DB-B796-C04F29A44068}
+		{212BF0C4-4350-44A2-9651-BB557D69618F} = {0E5CCE76-56C7-4AEA-9B92-7146B53B6225}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2850814E-12AE-42D8-BEF7-4FEC0AB3358B}
