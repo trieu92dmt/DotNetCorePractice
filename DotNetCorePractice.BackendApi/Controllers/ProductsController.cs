@@ -7,6 +7,7 @@ using DotNetCorePractice.ViewModels.Catalog.ProductImages;
 using DotNetCorePractice.ViewModels.Catalog.Products;
 using DotNetCorePractice.ViewModels.Catalog.Products.Public;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,7 @@ namespace DotNetCorePractice.BackendApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors]
     public class ProductsController : ControllerBase
     {
         private readonly IPublicProductService _publicProductService;
@@ -24,7 +26,6 @@ namespace DotNetCorePractice.BackendApi.Controllers
             _manageProductService = manageProductService;
         }
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Get()
         {
             var products = await _publicProductService.GetAll();

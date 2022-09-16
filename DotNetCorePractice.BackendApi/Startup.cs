@@ -51,7 +51,22 @@ namespace DotNetCorePractice.BackendApi
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<IUserService, UserService>();
 
+            //Add Controller and Fuluent Validatort
             services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
+
+            //Add Cors
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("DotNetCorePolicy", builder =>
+            //        builder.AllowAnyOrigin()
+            //    );
+            //});
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("mypolicy", builder => builder.WithOrigins("https://localhost:5005"));
+            });
+
             //Add Swagger
             services.AddSwaggerGen(c =>
             {
@@ -130,10 +145,13 @@ namespace DotNetCorePractice.BackendApi
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            //app.UseCors("DotNetCorePolicy");
 
             app.UseAuthentication();
 
             app.UseRouting();
+
+            app.UseCors("mypolicy");
 
             app.UseAuthorization();
 
